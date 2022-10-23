@@ -1,0 +1,45 @@
+:root {
+	--primary-color: #f4c109;
+	--background-color: #f3a954;
+}
+
+body{
+    margin: 0;
+}
+
+.container{
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.inputs{
+    display: block;
+}
+
+h2{
+    background-color: var(--primary-color);
+    margin: 0;
+    padding: 2rem;
+    text-align: center;
+}
+
+#chk-btn{
+    color: rgb(22, 22, 22);
+	margin: 0.5em auto;
+	padding: 0.5em;
+	border: 2px solid var(--primary-color);
+	border-radius: 10px;
+	background-color: var(--background-color);
+}
+
+#chk-btn:hover {
+	background-color: var(--primary-color);
+	color: black;
+}
+
+#result-text{
+    font-weight: bolder;
+}

@@ -1,53 +1,46 @@
-var initialPrice = document.querySelector("#initial-price");
-var stocksQuantity = document.querySelector("#stock-quantity");
-var currentPrice = document.querySelector("#current-price");
-var submitBtn = document.querySelector("#submit-btn");
-var outputBox = document.querySelector("#output-box");
-submitBtn.addEventListener('click', submitHandler)
+var buyingPrice = document.querySelector("#buying-price");
 
+var stocksQuantity = document.querySelector("#stocks-quantity");
 
+var sellingPrice = document.querySelector("#selling-price");
 
-function submitHandler() {
-    var ip = Number(initialPrice.value);
-    var qty = Number(stocksQuantity.value);
-    var curr = Number(currentPrice.value);
-  calculateProfitAndLoss(ip, qty, curr);
+var checkBtn = document.querySelector("#chk-btn");
+
+var resultText = document.querySelector("#result-text");
+
+function checkProfitAndLoss() {
+    
+    var buyingPriceOfStocks = buyingPrice.value;
+    var quantityOfStocks = stocksQuantity.value;
+    var sellingPriceOfStocks = sellingPrice.value;
+
+    var profit = Number(sellingPrice.value) - Number(buyingPrice.value);
+    var totalProfit = (sellingPriceOfStocks * quantityOfStocks) - (buyingPriceOfStocks * quantityOfStocks) ;
+    var profitPercentage = ((profit / buyingPrice.value) * 100).toFixed(2);
+
+    var loss = Number(buyingPrice.value) - Number(sellingPrice.value);
+    var lossPercentage = ((loss / buyingPrice.value) * 100).toFixed(2);
+    var totalLoss = (buyingPriceOfStocks * quantityOfStocks) - (sellingPriceOfStocks * quantityOfStocks);
+
+    if (Number(sellingPrice.value) > Number(buyingPrice.value)) {
+        
+        resultText.innerText = "The Profit Percentage is " + profitPercentage + "% " + "with a net profit of ₹" + totalProfit;
+        
+    }
+    else if (Number(sellingPrice.value) < Number(buyingPrice.value)) {
+        
+        resultText.innerText = "The Loss Percentage is " + lossPercentage + "% " + "with a total loss of ₹" + totalLoss;
+    }
+
+    else if(buyingPriceOfStocks == '' || quantityOfStocks == '' || sellingPriceOfStocks == '' || buyingPriceOfStocks <= 0 || quantityOfStocks <= 0 || sellingPriceOfStocks <= 0){
+        resultText.innerText = "Enter Valid Inputs"
+    }
+
+    else{
+        resultText.innerText = "No loss and No Profit"
+    }
 }
 
-function calculateProfitAndLoss(initial, quantity, current) {  if(initialPrice.value < 0){
-  outputBox.innerText=("😑Don't insert negative value in Initial Price😑");
-} 
-else if (stocksQuantity.value < 0 ) {
-  outputBox.innerText=("😑Don't insert negative value in Quantity of Stocks😑");
-}
- else if(currentPrice.value < 0 ){
-  outputBox.innerText=("😑Don't insert negative value in Current Price😑");
- }else if( initialPrice.value == 0){
-  outputBox.innerText=("🤨 Don't leave value of Initial price empty 🤨")
- } else if( stocksQuantity.value == 0){
-  outputBox.innerText=("🤨Don't leave value of quantity of Stock empty🤨")
- }else if( currentPrice.value == 0){
-  outputBox.innerText=("🤨Don't leave value of current price empty🤨")
- }
 
 
-   else  if (initial > current) {
-        //loss Logic here
-        var loss = (initial - current) * quantity;
-        var lossPercentge = (loss / initial) * 100;
-
-        showOutput(`🤒 Hey the loss is ${loss} and the percente is ${lossPercentge}% 🤒`);
-    } else if (current > initial) {
-        var profit = (current - initial) * quantity;
-        var profitPercentage = (profit / initial) * 100; 
-
-        showOutput(`🤩 Hey the profit is ${profit} and the percentage is ${profitPercentage}% 🤩` );
-
-   } else {
-        showOutput(`No pain no gain and no gain no pain`);
-    }
-      function showOutput(message) {
-
-        outputBox.innerHTML = message;
-      }
-    }
+checkBtn.addEventListener("click", checkProfitAndLoss)

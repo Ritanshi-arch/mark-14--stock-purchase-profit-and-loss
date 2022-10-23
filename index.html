@@ -4,28 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css" />
-    <title>Stocks</title>
+    <title>Stock-calculator</title>
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <h1>Stocks</h1>
-    <main>
-        <label for="initial-price">
-            Intial Price - <input id="initial-price" type="number" placeholder="Enter Initial Price Here" />
-        </label>
-            <label for="stock-quantity" >Quantity of the Stocks -
-         <input id="stock-quantity" type="number" placeholder="Enter the Number of Stocks bought" />
-    </label>
-        <label for="current-price">Current Price - 
-        <input id="current-price" type="number" placeholder="Enter the current price of the stocks"></input>
-    </label>
-        <button id="submit-btn"> Tell Me!!</button>
+    <h2>Welcome to wall street</h2>
+    <div class="container">
+        
+        <div class="inputs">
 
-        <div id="output-box"></div>
+            <label for="buying-price">Buying Price:</label>
+            <input type="number" id="buying-price" placeholder="Enter Purchase Price">
 
+            <label for="stocks-quantity">Stocks Quantity:</label>
+            <input type="number" id="stocks-quantity" placeholder="Enter Quantity">
+            
+            <label for="selling-price">Selling Price:</label>
+            <input type="number" id="selling-price" placeholder="Enter Selling Price">
+    
+            <p id="result-text"></p>
+        </div>
+        
 
+        <button id="chk-btn">Check</button>
 
-    </main>
+    </div>
+    <script src="./app.js"></script>
 </body>
-<script src="./app.js"></script>
 </html>
