@@ -1,45 +1,88 @@
-:root {
-	--primary-color: #f4c109;
-	--background-color: #f3a954;
-}
-
-body{
+* {
+    padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
-.container{
+:root {
+    --primary-color: #0824fd;
+}
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    background-color: rgb(152, 139, 112);
+    ;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+
+/* Header */
+
+header h1 {
+    text-align: center;
     margin: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
+    color: rgb(245, 230, 13);
 }
 
-.inputs{
+.input-label {
+    display: block;
+    font-size: larger;
+    margin: 2rem 0px;
+    font-weight: 600;
+    color: #131513;
+}
+
+.input {
+    font-size: large;
+    display: block;
+    outline: #fff;
+    padding: 0.6rem 1rem;
+    margin: 1rem auto;
+    border: 2px solid var(--primary-color);
+    border-radius: 0.5rem;
+    width: 100%;
+    max-width: 325px;
+}
+
+.button-check {
+    background: var(--primary-color);
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 0.9rem 1rem;
+    border-radius: 1rem;
+    font-size: larger;
+    cursor: pointer;
+    outline: #fff;
+    margin: auto;
     display: block;
 }
 
-h2{
-    background-color: var(--primary-color);
-    margin: 0;
-    padding: 2rem;
-    text-align: center;
+.output {
+    font-size: x-large;
+    font-weight: 600;
+    margin: 2rem 0;
+    color: #3aed3d;
 }
 
-#submitBtn{
-    color: rgb(22, 22, 22);
-	margin: 0.5em auto;
-	padding: 0.5em;
-	border: 2px solid var(--primary-color);
-	border-radius: 10px;
-	background-color: var(--background-color);
+
+
+a,
+img,
+li {
+    display: inline;
+    padding: 0.5rem;
+    color: black;
 }
 
-#submitBtn:hover {
-	background-color: var(--primary-color);
-	color: black;
-}
-
-#outputBox{
-    font-weight: bolder;
+img {
+    width: 40px;
+    padding: 1rem 0.2rem;
 }
